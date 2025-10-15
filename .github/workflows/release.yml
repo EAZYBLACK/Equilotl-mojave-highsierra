@@ -2,10 +2,7 @@
 
 name: Release
 on:
-  push:
-    tags:
-      - v*
-
+  workflow_dispatch:
 env:
   FORCE_COLOR: true
 
@@ -219,4 +216,5 @@ jobs:
             linux/EquilotlCli-linux
             macos/Equilotl.MacOS.zip
             windows/Equilotl*.exe
+
 
