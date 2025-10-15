@@ -67,7 +67,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.24"
+          go-version: "1.20"
 
       - id: go-cache-paths
         run: |
@@ -93,7 +93,7 @@ jobs:
         run: go get -v
 
       - name: Build GUI
-        run: CGO_CFLAGS="-mmacosx-version-min=10.15" CGO_LDFLAGS="-mmacosx-version-min=10.15" CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 go build -v -tags "static gui" -ldflags "-s -w -X 'vencord/buildinfo.InstallerGitHash=$(git rev-parse --short HEAD)' -X 'vencord/buildinfo.InstallerTag=${{ github.ref_name }}'" -o Equilotl
+        run: CGO_CFLAGS="-mmacosx-version-min=10.13" CGO_LDFLAGS="-mmacosx-version-min=10.13" CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 go build -v -tags "static gui" -ldflags "-s -w -X 'vencord/buildinfo.InstallerGitHash=$(git rev-parse --short HEAD)' -X 'vencord/buildinfo.InstallerTag=${{ github.ref_name }}'" -o Equilotl
 
       - name: Update executable
         run: |
@@ -219,3 +219,4 @@ jobs:
             linux/EquilotlCli-linux
             macos/Equilotl.MacOS.zip
             windows/Equilotl*.exe
+
